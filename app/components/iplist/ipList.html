@@ -1,0 +1,37 @@
+<div ng-controller="ipListCtrl" class="container">
+    <div class="grey-text"><b>Create a domain whitelist for your app credentials</b></div>
+    <form name="whiteListIPsForm" class="form-horizontal" ng-submit="saveWhiteListIps()">
+        <div ng-repeat="ip in ipAddresses track by $index" class="form-group">
+            <div class="col-sm-4">
+                <input
+                    type="text"
+                    name="input{{$index}}"
+                    class="form-control form-control-sm"
+                    placeholder='e.g.: 0.0.0.0'
+                    ng-model="ip.value" 
+                    ng-pattern="ipAddressPattern"
+                    ng-change="showNameChanged()"
+                />
+                <span ng-if="whiteListIPsForm['input' + $index].$invalid">
+                    Please enter a valid IP Address.
+                </span>
+            </div>
+            <div class="glyphicon glyphicon-minus cursor-pointer col-xs-1"
+                ng-click="removeRow($index)"
+                ng-disabled="isDisableButtons">
+            </div>
+            <div class="form-group col-sm-2" ng-if="$last">
+                <div class="glyphicon glyphicon-plus cursor-pointer"
+                    ng-click="addRow()"
+                    ng-show="isShowAddButton"></div>
+            </div>
+        </div>
+        <div class="form-group col-sm-offset-1 col-sm-10">
+            <button class="btn btn-primary" ng-show="!formSaved"
+                ng-disabled="whiteListIPsForm.$invalid || whiteListIPsForm.$pristine || isDisableButtons">
+                    Save
+            </button>
+            <button class="btn btn-primary" ng-show="formSaved" ng-disabled="true">Saved</button>
+        </div>
+    </form>
+</div>

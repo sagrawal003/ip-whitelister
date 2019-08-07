@@ -1,0 +1,14 @@
+<div ng-controller="homeCtrl" class="container">
+    <form>
+        <div class="form-group">
+            <label for="userSelect">Select your account type:</label>
+            <select ng-model="userSubscriptionPlan" id="userSelect">
+                <option 
+                    ng-repeat="(key, plan) in userPlans"
+                    value="{{key}}">{{plan.typeText}}
+                </option>
+            </select>
+        </div>
+        <button class="btn btn-primary" ng-click="setUserAccount()">Next</button>
+    </form>
+</div>
