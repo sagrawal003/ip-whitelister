@@ -1,0 +1,14 @@
+{
+  "name": "ip-whitelister",
+  "version": "1.0.0",
+  "description": "Simple app for IP white listing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sandeep Agrawal",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.7.8"
+  }
+}
