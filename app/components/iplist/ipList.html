@@ -1,5 +1,7 @@
 <div ng-controller="ipListCtrl" class="container">
-    <div class="grey-text"><b>Create a domain whitelist for your app credentials</b></div>
+    <div class="grey-text">
+        <b>Create a domain whitelist (Max {{ user.allowedIpAddress}} IP Address) for your app credentials</b>
+    </div>
     <form name="whiteListIPsForm" class="form-horizontal" ng-submit="saveWhiteListIps()">
         <div ng-repeat="ip in ipAddresses track by $index" class="form-group">
             <div class="col-sm-4">
